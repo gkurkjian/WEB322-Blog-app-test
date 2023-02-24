@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-md-12">
+          <h2><a href="/categories/add" class="btn btn-success pull-right">Add Category</a></h2>
+
+           <hr />
+
+          <div class="department-div">
+              <table class="table">
+                  <thead>
+                      <tr>
+                          <th>Category ID</th>
+                          <th>Category Name</th>
+                      </tr>
+                  </thead>
+                  <body>
+                    {{#each categories}}
+                        <tr>
+                            <td><a href="/posts?category={{this.id}}">{{this.id}}</a></td>
+                            <td><a href="/posts?category={{this.id}}">{{this.category}}</a></td>
+                            <td><a class="ctn ctn-danger" href="/categories/delete/{{id}}">remove</a></td>
+                      </tr>
+                    {{/each}}
+                  </body>
+              </table>
+          </div>
+          <div class="col-md-12 text-center">
+            {{#unless category}}
+                <strong>{{message}}</strong>
+            {{/unless}}
+            </div>
+    </div>
+</div>
