@@ -1,8 +1,21 @@
 // const res = require('express/lib/response');
 const Sequelize = require('sequelize');
 
-var sequelize = new Sequelize('ubjxmawk', 'ubjxmawk', 'BZv44GWYKUQJTLM9rxfiUu8QlHTqBtQi', {
-  host: 'peanut.db.elephantsql.com',
+// Carlos's sql
+// var sequelize = new Sequelize('ubjxmawk', 'ubjxmawk', 'BZv44GWYKUQJTLM9rxfiUu8QlHTqBtQi', {
+//   host: 'peanut.db.elephantsql.com',
+//   dialect: 'postgres',
+//   port: 5432,
+//   dialectOptions: {
+//       ssl: { rejectUnauthorized: false }
+//   },
+//   query: { raw: true }
+// });
+
+
+// My new 2023 Elephant.sql
+var sequelize = new Sequelize('acnlmpna', 'acnlmpna', 'Pl_0yB6mzb00-szpi9vnjoW2JLMHHcIN', {
+  host: 'raja.db.elephantsql.com',
   dialect: 'postgres',
   port: 5432,
   dialectOptions: {
@@ -10,7 +23,6 @@ var sequelize = new Sequelize('ubjxmawk', 'ubjxmawk', 'BZv44GWYKUQJTLM9rxfiUu8Ql
   },
   query: { raw: true }
 });
-
 
 const Post = sequelize.define('Post', {
 
@@ -119,6 +131,27 @@ module.exports.addPost = function (postData) {  // this is added
     })
   });
 };
+
+
+// module.exports.addPost = function (postData) {
+//   return new Promise((resolve, reject) => {
+//       postData.published = postData.published ? true : false;
+// 
+//       for (var prop in postData) {
+//           if (postData[prop] === '')
+//           postData[prop] = null;
+//       }
+// 
+//       postData.postDate = new Date();
+// 
+//       Post.create(postData).then(() => {
+//           resolve();
+//       }).catch((e) => {
+//           reject("unable to create post");
+//       });
+// 
+//     });
+// }
 
 
 module.exports.getPublishedPosts = function () {
