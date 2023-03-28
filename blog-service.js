@@ -12,9 +12,8 @@ const Sequelize = require('sequelize');
 //   query: { raw: true }
 // });
 
-
-// My new 2023 Elephant.sql
-var sequelize = new Sequelize('acnlmpna', 'acnlmpna', 'Pl_0yB6mzb00-szpi9vnjoW2JLMHHcIN', {
+// Newly created Database account on Elephant.sql and Viewed on pgAdmin 4 Blog-APP
+var sequelize = new Sequelize('nutgbcht', 'nutgbcht', 'InsbdUXCvQ63D1i1ycCfSdlrfdNva7VD', {
   host: 'raja.db.elephantsql.com',
   dialect: 'postgres',
   port: 5432,
@@ -23,6 +22,7 @@ var sequelize = new Sequelize('acnlmpna', 'acnlmpna', 'Pl_0yB6mzb00-szpi9vnjoW2J
   },
   query: { raw: true }
 });
+
 
 const Post = sequelize.define('Post', {
 
@@ -132,28 +132,6 @@ module.exports.addPost = function (postData) {  // this is added
   });
 };
 
-
-// module.exports.addPost = function (postData) {
-//   return new Promise((resolve, reject) => {
-//       postData.published = postData.published ? true : false;
-// 
-//       for (var prop in postData) {
-//           if (postData[prop] === '')
-//           postData[prop] = null;
-//       }
-// 
-//       postData.postDate = new Date();
-// 
-//       Post.create(postData).then(() => {
-//           resolve();
-//       }).catch((e) => {
-//           reject("unable to create post");
-//       });
-// 
-//     });
-// }
-
-
 module.exports.getPublishedPosts = function () {
   return new Promise((resolve, reject) => {
     Post.findAll({
@@ -238,4 +216,3 @@ exports.deletePostById = function(id) {
     })
   })
 }
-
